@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Constructors</title>
+</head>
+<body>
+    
+
+    <script>
+        class emp{
+            constructor(fName='not filed',lName = 'not filed'){
+                this.fName = fName;
+                this.lName = lName;
+            }
+
+            getFullName = () =>{
+                console.log(`${this.fName} ${this.lName}`)
+            }
+        }
+        const empName = new emp('Vijay','Gautam')
+        empName.getFullName()
+
+        const empName1 = new emp('Raj','Pratap')
+        empName1.getFullName()
+
+    </script>
+</body>
+</html>
