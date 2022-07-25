@@ -14,4 +14,4 @@ latters.forEach(function (value, key) {
 document.getElementById('demo').innerHTML = text
 document.getElementById('demo2').innerHTML = latters.get(2)
 
-console.log(latters.entries())
+console.log(latters.entries());
