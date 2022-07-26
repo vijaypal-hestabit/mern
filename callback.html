@@ -35,6 +35,7 @@
 
         // with callback
         // get value of array object
+        
         let getData = () => {
             setTimeout(() => {
                 emp.forEach(data => {
@@ -46,8 +47,8 @@
 
         let setData = (data,callback) =>{
             setTimeout(() => {
-                emp.push(data)
                 callback()
+                emp.push(data)
                 console.log('2 sec')
             }, 2000);
         }
