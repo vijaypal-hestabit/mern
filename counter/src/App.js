@@ -1,31 +1,26 @@
 import './App.css';
-import Counter from "./myComponent/Counter.js";
-import { useState } from 'react';
+// import Construct from './myComponent/1_construct';
+// import ComponentWillMount from './myComponent/2_componentWillMount';
+import ComponentDidMount from './myComponent/3_componentDidMount';
+// import ComponentDidUpdate from './myComponent/4_componentDidUpdate';
+// import ShouldComponentUpdate from './myComponent/5_shouldComponentUpdate';
+// import ComponentWillUpdate from './myComponent/6_componentWillUpdate';
+// import ComponentDidUpdate from './myComponent/7_componentDidUpdate';
+// import ComponentWillUnmount from './myComponent/8b_componentWillUnmount';
+
 
 
 function App() {
-  const [count, setCount] = useState(0);
-
-  const handleCountPlus = () => {
-    setCount(count + 1)
-  }
-
-  const handleCountMinus = () => {
-    if (count > 0) {
-      setCount(count - 1)
-    }
-  }
-  
-  const getInputValue = () =>{
-    // console.log('hit')
-  }
-
-  // {input ? input + props.count : props.count} onChange={(e) => setInput(e.target.value)
-
-
   return (
-    <div>
-      <Counter plus={handleCountPlus} getInput={getInputValue} minus={handleCountMinus} count={count} title="Add to cart"/>
+    <div className='App'>
+      {/* <Construct name='Vijay'/> */}
+      {/* <ComponentWillMount/> */}
+      <ComponentDidMount/>
+      {/* <ComponentDidUpdate/> */}
+      {/* <ShouldComponentUpdate/> */}
+      {/* <ComponentWillUpdate/> */}
+      {/* <ComponentDidUpdate/> */}
+      {/* <ComponentWillUnmount/> */}
     </div>
   );
 
