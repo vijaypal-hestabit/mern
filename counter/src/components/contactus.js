@@ -10,11 +10,16 @@ let ContactUs = () => {
     const [emailErr, setEmailErr] = useState(0)
     const [numberErr, setNumberErr] = useState(0)
     const [descErr, setDescErr] = useState(0)
+    const [validName, isValidName] = useState(false)
+    const [validEmail, isValidEmail] = useState(false)
+    const [validNumber, isValidNumber] = useState(false)
+    const [validDesc, isValidDesc] = useState(false)
 
     let nameHandler = (e) => {
         let name = e.target.value
         if (name.length > 0 && /^[a-zA-Z]*$/g.test(name)) {
             setNameErr(0)
+            isValidName(true)
         } else {
             setNameErr(1)
         }
@@ -25,6 +30,7 @@ let ContactUs = () => {
         let email = e.target.value
         if (email.length > 0 && /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
             setEmailErr(0)
+            isValidEmail(true)
         } else {
             setEmailErr(1)
         }
@@ -34,6 +40,7 @@ let ContactUs = () => {
         let number = e.target.value
         if (number.length > 0 && /^[0-9]*$/g.test(number)) {
             setNumberErr(0)
+            isValidNumber(true)
         } else {
             setNumberErr(1)
         }
@@ -41,10 +48,11 @@ let ContactUs = () => {
     }
     let descHandler = (e) => {
         let desc = e.target.value
-        let wordCount  = desc.split(" ").length
+        let wordCount = desc.split(" ").length
 
-        if (wordCount >= 10 && wordCount <=100) {
+        if (wordCount >= 10 && wordCount <= 100) {
             setDescErr(0)
+            isValidDesc(true)
         } else {
             setDescErr(1)
         }
@@ -69,10 +77,24 @@ let ContactUs = () => {
             setDescErr(2)
         }
 
-        // console.log(name)
-        // console.log(email)
-        // console.log(number)
-        // console.log(desc)
+        if (validName && validEmail && validNumber && validDesc) {
+            let userData = {
+                "body":
+                {
+                    "email": email,
+                    "message": desc,
+                    "name": name,
+                    "tel": number
+                }
+            }
+            fetch('https://gradbay.hestawork.com/api/contact/submit ', {  
+                method: 'POST',
+                mode: 'cors',
+                body: JSON.stringify(userData) // body data type must match "Content-Type" header
+            })
+            // console.log(userData)
+        }
+
 
     }
     return (
