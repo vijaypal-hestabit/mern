@@ -27,6 +27,10 @@ class Customers extends Component{
         // }
     }
 
+    componentWillReceiveProps(){    
+        console.log('inside componentWillReceiveProps.')
+    }
+
     // when updating dom
     componentWillUpdate(){
         console.log(`how to execute a function before the component is updated in the DOM`)
@@ -46,7 +50,7 @@ class Customers extends Component{
         console.log(`insdie render`)
         return(
             <div>
-                Welcome to Hestabit
+                Welcome to Hestabit {this.props.name}
             </div>
         )
     }
