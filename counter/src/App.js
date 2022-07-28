@@ -1,5 +1,5 @@
 import './App.css';
-// import Customers from './myComponent/lifeCycle';
+import Customers from './myComponent/lifeCycle';
 // import Construct from './myComponent/1_construct';
 // import ComponentWillMount from './myComponent/2_componentWillMount';
 // import ComponentDidMount from './myComponent/3_componentDidMount';

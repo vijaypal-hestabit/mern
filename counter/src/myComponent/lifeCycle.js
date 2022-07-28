@@ -41,10 +41,10 @@ class Customers extends Component{
         console.log(`how to execute a function when the component is updated in the DOM`)
     }
 
-    // remove component
-    componentWillUnmount() {
-        alert(`delete successfully`)
-    }
+    // // remove component
+    // componentWillUnmount() {
+    //     alert(`delete successfully`)
+    // }
 
     render() {
         console.log(`insdie render`)
