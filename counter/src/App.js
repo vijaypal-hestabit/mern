@@ -1,28 +1,34 @@
 import './App.css';
-// import Construct from './myComponent/1_construct';
-// import ComponentWillMount from './myComponent/2_componentWillMount';
-import ComponentDidMount from './myComponent/3_componentDidMount';
-// import ComponentDidUpdate from './myComponent/4_componentDidUpdate';
-// import ShouldComponentUpdate from './myComponent/5_shouldComponentUpdate';
-// import ComponentWillUpdate from './myComponent/6_componentWillUpdate';
-// import ComponentDidUpdate from './myComponent/7_componentDidUpdate';
-// import ComponentWillUnmount from './myComponent/8b_componentWillUnmount';
-
+import './components/css/nav.css'
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
+import Home from './components/home';
+import Blog from './components/blog';
+import About from './components/about';
+import ContactUs from './components/contactus';
+import Services from './components/services';
+import NavBar from './components/navBar';
+import Users from './components/users';
+import Filter from './components/filter';
 
 
 function App() {
-  return (
-    <div className='App'>
-      {/* <Construct name='Vijay'/> */}
-      {/* <ComponentWillMount/> */}
-      <ComponentDidMount/>
-      {/* <ComponentDidUpdate/> */}
-      {/* <ShouldComponentUpdate/> */}
-      {/* <ComponentWillUpdate/> */}
-      {/* <ComponentDidUpdate/> */}
-      {/* <ComponentWillUnmount/> */}
-    </div>
-  );
+    return (
+        <div className='App'>
+            <BrowserRouter>
+                <NavBar />
+                <Routes>
+                    <Route path='/' element={<Home />} />
+                    <Route path='/about' element={<About />} />
+                    <Route path='/services' element={<Services />} />
+                    <Route path='/blog' element={<Blog />} />
+                    <Route path='/contactus' element={<ContactUs />} />
+                    <Route path='/users/:name' element={<Users />} />
+                    <Route path='/filter' element={<Filter />} />
+                    <Route path='/*' element={<Navigate to="/" />} />
+                </Routes>
+            </BrowserRouter>
+        </div>
+    );
 
 }
 
