@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+// import Button from './Button'
 
 let ContactUs = () => {
     const [name, setName] = useState('')
@@ -87,11 +87,19 @@ let ContactUs = () => {
                     "tel": number
                 }
             }
-            fetch('https://gradbay.hestawork.com/api/contact/submit ', {  
+            fetch('https://gradbay.hestawork.com/api/contact/submit ', {
                 method: 'POST',
                 mode: 'cors',
                 body: JSON.stringify(userData) // body data type must match "Content-Type" header
-            })
+            }).then(response => response.json())
+                .then(userData =>
+                    {
+                        if(userData.success){
+                            alert(userData.successMsg)
+                        }
+                    }
+                    // console.log(userData)
+                )
             // console.log(userData)
         }
 
@@ -101,22 +109,27 @@ let ContactUs = () => {
         <div >
             <form onSubmit={getFormData}>
                 <div>
-                    <input type="text" onBlur={nameHandler} placeholder="Enter name" />
+                    <input type="text" onChange={nameHandler} placeholder="Enter name" />
                     <div className="error">{nameErr === 1 ? 'Enter alphabet only' : nameErr === 2 ? 'Enter your name' : ''}</div>
                 </div>
                 <div>
-                    <input type="text" onBlur={emailHandler} placeholder="Enter email" /><br />
+                    <input type="text" onChange={emailHandler} placeholder="Enter email" /><br />
                     <div className="error">{emailErr === 1 ? 'Enter valid email' : emailErr === 2 ? 'Enter your email' : ''}</div>
                 </div>
                 <div>
-                    <input type="text" onBlur={numberHandler} placeholder="Enter phone" /><br />
+                    <input type="text" onChange={numberHandler} placeholder="Enter phone" /><br />
                     <div className="error">{numberErr === 1 ? 'Enter number only' : numberErr === 2 ? 'Enter your number' : ''}</div>
                 </div>
                 <div>
-                    <textarea onBlur={descHandler} placeholder="Enter Description" rows='5' /><br />
+                    <textarea onChange={descHandler} placeholder="Enter Description" rows='5' /><br />
                     <div className="error">{descErr === 1 ? 'Enter min 10 and max 100 word' : descErr === 2 ? 'Write something here' : ''}</div>
                 </div>
                 <input type="submit" value="submit" />
+                {/* <Button backgroundColor="red" title="Save"/>
+                <Button backgroundColor="green"/>
+                <Button backgroundColor="yellow"/>
+                <Button backgroundColor="blue"/>
+                <Button/> */}
             </form>
         </div>
     )

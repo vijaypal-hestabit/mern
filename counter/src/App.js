@@ -9,11 +9,13 @@ import Services from './components/services';
 import NavBar from './components/navBar';
 import Users from './components/users';
 import Filter from './components/filter';
+// import HOC from './components/hoc';
 
 
 function App() {
     return (
         <div className='App'>
+            {/* <HOC /> */}
             <BrowserRouter>
                 <NavBar />
                 <Routes>

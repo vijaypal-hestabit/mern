@@ -1,4 +1,5 @@
 import { useSearchParams } from "react-router-dom"
+// import Button from './Button'
 
 let Filter = ()=>{
     const [searchParams,setSearchParams] = useSearchParams()
@@ -8,6 +9,7 @@ let Filter = ()=>{
         <div>
             <p>My name is {name} and age is {age}.</p>
             <input type='text' onChange={(e)=>setSearchParams({name:name,age:age,des:e.target.value})} placeholder="set des on filter"/>
+            
         </div>
     )
 }
